@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'haml'
+gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -24,4 +25,5 @@ gem 'haml'
 group :development, :test do
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.0.0'
 end
