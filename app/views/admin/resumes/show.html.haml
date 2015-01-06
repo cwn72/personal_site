@@ -1,2 +1,101 @@
 %h3
   Showing resume
+%table.table
+  %tr
+    %th
+      Name
+    %th
+      Email
+    %th
+      Phone
+    %th
+      Site
+  %tr
+    %td
+      = @resume.name
+    %td
+      = @resume.email
+    %td
+      = @resume.phone
+    %td
+      = @resume.site
+%h3
+  Experiences
+%table.table
+  %tr
+    %th
+      Job title
+    %th
+      Company
+    %th
+      Current
+    %th
+      Start date
+    %th
+      End date
+  -@resume.experiences.each do |exp|
+    %tr
+      %td
+        = exp.job_title
+      %td
+        = exp.company
+      %td
+        = exp.current
+      %td
+        = exp.start_date
+      %td
+        = exp.end_date
+      %td
+        = link_to 'Delete', [:admin,@resume,exp], method: :delete, data: {confirm: 'Are you sure?'}
+%h3
+  Skills
+%table.table
+  %tr
+    %th
+      Name
+    %th
+      Experience
+    %th
+      Years
+  -@resume.skills.each do |skill|
+    %tr
+      %td
+        = skill.name
+      %td
+        = skill.experience
+      %td
+        = skill.years
+      %td
+        = link_to 'Delete', [:admin,@resume,skill], method: :delete, data: {confirm: 'Are you sure?'}
+%h3
+  Projects
+%table.table
+  %tr
+    %th
+      Name
+    %th
+      Link
+    %th
+      Image
+  -@resume.projects.each do |project|
+    %tr
+      %td
+        = project.name
+      %td
+        = link_to project.name, project.name
+      %td
+        = image_tag project.image(:thumbnail)
+      %td
+        = link_to 'Delete', [:admin,@resume,project], method: :delete, data: {confirm: 'Are you sure?'}
+%h3
+  New experience
+= render 'admin/experiences/form'
+%h3
+  New Skill
+= render 'admin/skills/form'
+%h3
+  New project
+= render 'admin/projects/form'
+= link_to 'Back', admin_resumes_path
+= link_to 'Edit', edit_admin_resume_path(@resume.id)
+= link_to 'Delete', admin_resume_path(@resume.id), method: :delete, data: {confirm: 'Are you sure?'}

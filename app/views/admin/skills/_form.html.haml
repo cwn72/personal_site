@@ -1,0 +1,16 @@
+-if @skill.nil?
+  -@skill = @resume.skills.new
+= form_for [:admin,@resume,@skill], html: {role: 'form'} do |f|
+  -if @skill.errors.any?
+    = render partial: 'shared/errors_explanation', locals: { errors: @skill.errors }
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :experience
+    = f.number_field :experience, class: 'form-control'
+  .form-group
+    = f.label :years
+    = f.number_field :years, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-default'

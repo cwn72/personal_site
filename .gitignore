@@ -18,3 +18,6 @@
 
 #Ignore all idea files
 .idea/
+
+#Ignore local_env.yml
+/config/local_env.yml

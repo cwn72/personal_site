@@ -1,0 +1,25 @@
+-if @experience.nil?
+  -@experience = @resume.experiences.new
+= form_for [:admin,@resume,@experience], html: {role: 'form'} do |f|
+  -if @experience.errors.any?
+    = render partial: 'shared/errors_explanation', locals: { errors: @experience.errors }
+  .form-group
+    = f.label :job_title
+    = f.text_field :job_title, class: 'form-control'
+  .form-group
+    = f.label :company
+    = f.text_field :company, class: 'form-control'
+  .form-group
+    = f.label :current
+    = f.check_box :current
+  .form-group
+    = f.label :start_date
+    = f.date_select :start_date, class: 'form-control'
+  .form-group
+    = f.label :end_date
+    = f.date_select :end_date, class: 'form-control'
+  .from-group
+    = f.label :overview
+    = f.text_area :overview, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-default'

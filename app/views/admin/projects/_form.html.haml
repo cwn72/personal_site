@@ -1,0 +1,15 @@
+-if @project.nil?
+  -@project = @resume.projects.new
+= form_for [:admin,@resume,@project], html: { role: 'form' } do |f|
+  -if @project.errors.any?
+    = render partial: 'shared/errors_explanation', locals: { errors: @project.errors }
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :link
+    = f.text_field :link, class: 'form-control'
+  .form-group
+    = f.file_field :image
+  .form-group
+    = f.submit class: 'btn btn-default'

@@ -1,0 +1,8 @@
+.alert.alert-danger
+  %strong
+    = pluralize(errors.count, 'Error')
+    found.
+  %ul
+    -errors.full_messages.each do |msg|
+      %li
+        =msg

@@ -1,2 +1,5 @@
-%h3
-  Edit resume
+.col-md-8.col-md-offset-2
+  %h3
+    Edit resume
+  = render 'form'
+  = link_to 'Back', admin_resume_path(@resume.id)

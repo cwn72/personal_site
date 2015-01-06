@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '4.1.8'
 gem 'sass-rails', '~> 4.0.3'
@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'haml'
 gem 'bootstrap-sass'
+gem 'paperclip', '~> 4.2'
+gem 'aws-sdk'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

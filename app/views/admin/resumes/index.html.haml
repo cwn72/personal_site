@@ -1,2 +1,29 @@
 %h3
   Viewing resumes
+%table.table
+  %tr
+    %th
+      Name
+    %th
+      Email
+    %th
+      Phone
+    %th
+      Site
+  -@resumes.each do |r|
+    %tr
+      %td
+        = r.name
+      %td
+        = r.email
+      %td
+        = r.phone
+      %td
+        = r.site
+      %td
+        = link_to 'Show', admin_resume_path(r.id)
+      %td
+        = link_to 'Edit', edit_admin_resume_path(r.id)
+      %td
+        = link_to 'Delete', admin_resume_path(r.id), method: :delete, data: {confirm: 'Are you sure?'}
+= link_to 'New', new_admin_resume_path
