@@ -119,3 +119,28 @@ h5{
     margin: 10px;
   }
 }
+
+
+//slide presentation
+.stage{
+  height: 100vh;
+  width: 100vw;
+  .slide-container{
+    position: absolute;
+    height: 100vh;
+    .slide{
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      .slide-content{
+      }
+    }
+  }
+}
+
+.stage-controls{
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+}
