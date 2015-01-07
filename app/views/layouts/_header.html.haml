@@ -6,16 +6,16 @@
     %div
       %ul.nav.navbar-nav.pull-right
         %li
-          %a{href: root_path}
+          %a{href: root_path, class: action_name == 'home' ? 'active' : '' }
             Home
         %li
-          %a{href: '/about'}
+          %a{href: '/about', class: action_name == 'about' ? 'active' : '' }
             About
         %li
           %a{href: '#'}
             Resume
         %li
-          %a{href: '/contact'}
+          %a{href: '/contact', class: action_name == 'contact' ? 'active' : '' }
             Contact
 
 

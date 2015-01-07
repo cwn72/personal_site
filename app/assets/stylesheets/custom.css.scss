@@ -1,0 +1,121 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+//Open sans
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
+}
+
+body{
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: $gray;
+}
+
+//Home background image
+.home{
+  background-image: url('http://cwn72.s3.amazonaws.com/ls_bg.jpg');
+}
+
+//Navbar
+.navbar-default{
+  background-color: orange;
+  border: none;
+  border-radius: 0px;
+  > div{
+    .navbar-header{
+      a{
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: -2px;
+        font-size: 200%;
+        font-weight: bolder;
+        &:hover, &:focus{
+          color: white;
+        }
+      }
+    }
+    .navbar-nav{
+      a{
+        color: white;
+        font-weight: bold;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+      }
+      .active{
+        color: $gray-darker;
+      }
+    }
+  }
+}
+
+//Centering
+.quick-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//headings
+h3{
+  color: orange;
+}
+
+h4{
+  color: orange;
+  font-size: 200%;
+}
+
+h5{
+  color: orange;
+  font-size: 150%;
+}
+
+//round images
+.thumb_image{
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 5px solid orange;
+}
+
+//about page
+.profile-row{
+  padding-bottom: 20px;
+  border-bottom: 1px solid $gray-lighter;
+}
+
+.profile-profile-column{
+  border-right: 1px solid $gray-lighter;
+}
+
+.interest-row{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.interest-text{
+  padding-top: 50px;
+}
+//accordions
+.accordion{
+  border: 1px solid $gray-light;
+  border-radius: 5px;
+  margin: 10px;
+  .accordion-label{
+    color: orange;
+    margin: 10px;
+    font-size: 150%;
+    font-weigth: bold;
+    text-transform: uppercase;
+  }
+  .accordion-body{
+    margin: 10px;
+  }
+}

@@ -1,2 +1,21 @@
-%h3
-  Contact
+.container
+  .row.text-center
+    %h5
+      Send me a message
+  .row
+    .col-md-6.col-md-offset-3
+      = form_tag '#', role: 'form'
+      .form-group
+        = label_tag(:name, 'Name')
+        = text_field_tag(:name, nil, class: 'form-control')
+      .form-group
+        = label_tag(:email, 'Email')
+        = text_field_tag(:email, nil, class: 'form-control')
+      .form-group
+        = label_tag(:subject, 'Subject')
+        = text_field_tag(:subject, nil, class: 'form-control')
+      .form-group
+        = label_tag(:message, 'Message')
+        = text_area_tag(:message, nil, class: 'form-control')
+      .form-group.text-center
+        = submit_tag('Send message', class: 'btn btn-default')

@@ -87,15 +87,21 @@
         = image_tag project.image(:thumbnail)
       %td
         = link_to 'Delete', [:admin,@resume,project], method: :delete, data: {confirm: 'Are you sure?'}
-%h3
-  New experience
-= render 'admin/experiences/form'
-%h3
-  New Skill
-= render 'admin/skills/form'
-%h3
-  New project
-= render 'admin/projects/form'
+.accordion
+  .accordion-label
+    New experience
+  .accordion-body
+    = render 'admin/experiences/form'
+.accordion
+  .accordion-label
+    New Skill
+  .accordion-body
+    = render 'admin/skills/form'
+.accordion
+  .accordion-label
+    New project
+  .accordion-body
+    = render 'admin/projects/form'
 = link_to 'Back', admin_resumes_path
 = link_to 'Edit', edit_admin_resume_path(@resume.id)
 = link_to 'Delete', admin_resume_path(@resume.id), method: :delete, data: {confirm: 'Are you sure?'}
