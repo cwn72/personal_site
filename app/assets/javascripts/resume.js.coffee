@@ -9,6 +9,7 @@ duration = 1200
 ready = ->
   #build slide tree
   slideTree = buildSlideTree()
+  alignUpButton()
   hideAllButCurrent()
   checkButtons()
   $('.btn-down').click( ->
@@ -22,6 +23,17 @@ ready = ->
   )
   $('.btn-left').click( ->
     slideRight()
+  )
+  $('body').keypress( (event) ->
+    code = event.keyCode || event.which
+    if code == 38
+      slideDown()
+    else if code == 37
+      slideRight()
+    else if code == 40
+      slideUp()
+    else if code == 39
+      slideLeft()
   )
 
 $(document).ready(ready)
@@ -68,6 +80,8 @@ hideAllButCurrent = ->
 
 #slide slides up
 slideUp = ->
+  if !hasSlidesDown
+    return
   adjX = findAdjustedX(currentPosition.y+1)
   nextSlide = getSlide(adjX,currentPosition.y+1)
   currSlide = getCurrentSlide()
@@ -92,6 +106,8 @@ slideUp = ->
 
 #slide slides down
 slideDown = ->
+  if !hasSlidesUp
+    return
   adjX = findAdjustedX(currentPosition.y-1)
   nextSlide = getSlide(adjX,currentPosition.y-1)
   currSlide = getCurrentSlide()
@@ -117,6 +133,8 @@ slideDown = ->
 
 #slide slides left
 slideLeft = ->
+  if !hasSlidesRight()
+    return
   nextSlide = getSlide(currentPosition.x+1, currentPosition.y)
   currSlide = getCurrentSlide()
   #position next slide
@@ -139,6 +157,8 @@ slideLeft = ->
 
 #slide slides right
 slideRight = ->
+  if !hasSlidesLeft()
+    return
   nextSlide = getSlide(currentPosition.x-1, currentPosition.y)
   currSlide = getCurrentSlide()
   #position next slide
@@ -189,3 +209,8 @@ findAdjustedX = (y)->
     if slideTree[y][i].css('left') == '0px'
       return i
   return 0
+
+#aligns the up button with the down button
+alignUpButton = ->
+  mLeft = $('.btn-down').offset().left - $('.stage-controls').offset().left
+  $('.btn-up').css(marginLeft: mLeft)

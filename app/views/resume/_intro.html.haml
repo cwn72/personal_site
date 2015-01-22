@@ -1,0 +1,8 @@
+.resume-intro
+  %div
+    %strong
+      = @resume.name
+  %p
+    = @resume.email + ' ' + @resume.phone
+    %a{href: root_path}
+      = @resume.site

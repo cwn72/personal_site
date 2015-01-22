@@ -1,0 +1,6 @@
+.resume-project
+  %a{href: @project.link, target: '_blank'}
+    .project-preview{style: "background-image: url(\"#{@project.image.url(:thumbnail)}\")"}
+      .project-preview-overlay.hidden
+        %h3
+          = @project.name

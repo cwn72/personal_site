@@ -1,0 +1,7 @@
+.resume-experience
+  %strong
+    = @experience.job_title + ' - ' + @experience.company
+  %p.resume-dates
+    = @experience.start_date.strftime('%b %Y') + ' - ' + @experience.end_date.strftime('%b %Y')
+  %p
+    = @experience.overview

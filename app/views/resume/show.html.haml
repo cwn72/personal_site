@@ -1,44 +1,54 @@
 .stage-controls
   .btn.btn-default.btn-up
     %span.glyphicon.glyphicon-chevron-up
+  %br
   .btn.btn-default.btn-left
     %span.glyphicon.glyphicon-chevron-left
   .btn.btn-default.btn-down
     %span.glyphicon.glyphicon-chevron-down
   .btn.btn-default.btn-right
     %span.glyphicon.glyphicon-chevron-right
+  %br
+  .text-center
+    %a{href: root_path, data: {confirm: 'go to craignaumann.com?'}}
+      back to site
 
 .stage
   .slide-container
     .slide
       .slide-content.quick-center
-        Slide 3-1
-    .slide
-      .slide-content.quick-center
-        Slide 3-2
-    .slide
-      .slide-content.quick-center
-        Slide 3-3
+        = render 'intro'
   .slide-container
-    .slide
-      .slide-content.quick-center.text-center
-        %strong
-          Craig Naumann
-        %p
-          cwn720@gmail.com 951.496.5107
-          %a
-            craignaumann.com
+    -@resume.experiences.each_with_index do |exp,i|
+      .slide
+        .slide-content.quick-center
+          -if i == 0
+            .resume-label
+              %h4
+                Experiences
+              %br
+              %br
+          -@experience = exp
+          = render 'experience'
   .slide-container
     .slide
       .slide-content.quick-center
-        %strong
-          Experience 1
-        %p
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        .resume-label
+          %h4
+            Skills
+        .half-container
+          -(@resume.skills.sort_by{ |s| s.experience}).reverse_each.each_slice((@resume.skills.length/2) + 1) do |slice|
+            .skills-row
+              -slice.each do |skill|
+                -@skill = skill
+                = render 'skill'
   .slide-container
     .slide
       .slide-content.quick-center
-        Slide 4-1
-    .slide
-      .slide-content.quick-center
-        Slide 4-2
+        .resume-label
+          %h4
+            Projects
+        .half-container
+          - @resume.projects.each do |project|
+            -@project = project
+            = render 'project'

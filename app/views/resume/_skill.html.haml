@@ -1,0 +1,9 @@
+.resume-skill
+  %div
+    = @skill.name
+  .skill-experience
+    -0.upto(4) do |i|
+      -if @skill.experience > i
+        %span.glyphicon.glyphicon-star
+      -else
+        %span.glyphicon.glyphicon-star-empty
