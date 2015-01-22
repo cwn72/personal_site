@@ -29,3 +29,8 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.0.0'
 end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor', '0.0.2'
+end
