@@ -159,6 +159,20 @@ h5{
   }
 }
 
+.quick-dl{
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  z-index: 9999;
+  a{
+    text-decoration: none;
+    color: orange;
+    &:hover, &:focus{
+      color: $gray-dark;
+    }
+  }
+}
+
 .resume-intro{
   > div{
     text-align: center;
