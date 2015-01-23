@@ -40,5 +40,17 @@ module PersonalSite
         :path => '/:class/:attachment/:id_partition/:style/:filename'
     }
 
+    config.action_mailer.delivery_method = :smtp
+    # SMTP settings for gmail
+    config.action_mailer.smtp_settings = {
+        :address              => "smtp.gmail.com",
+        :port                 => 587,
+        :user_name            => ENV['MESSAGE_EMAIL'],
+        :password             => ENV['EMAIL_PASSWORD'],
+        :authentication       => "plain",
+        :enable_starttls_auto => true
+    }
+
+
   end
 end
